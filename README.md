@@ -5,7 +5,7 @@
 DualTransfer 是 Harness 内的实验插件。两端通过加密直连建立连接，分别绑定自己的本机会话，不需要另装 Dual Transfer App。除 Win/Mac 互联外，设计也支持同系统双机；实际验证范围见下方记录。
 
 - [下载当前实验版：6.9 reboot.3](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/releases/tag/demo-6.9-reboot.3>)
-- [测试记录](<TEST-RESULTS.md>) · [试用与许可说明](<TRIAL-TERMS.md>)
+- [首发时测试记录（历史）](<TEST-RESULTS.md>) · [Windows 同包补充验收](<TEST-RESULTS-REBOOT3-WINDOWS.md>) · [试用与许可说明](<TRIAL-TERMS.md>)
 - [反馈问题](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/issues/new>) · [反馈模板](<.github/ISSUE_TEMPLATE/bug_report.md>)
 
 本仓库提供实验安装包、校验文件和试用反馈入口。当前不是稳定版，也不是开源项目；源码仓库保持私有。请先用隔离环境和非敏感任务试用。
@@ -70,7 +70,11 @@ Mac 端 Agent ── 目标、范围、验收条件 ──▶ Windows 端 Agent
 
 版本为 `0.2.0-candidate.6.9.reboot.3`，macOS 与 Windows 共用一个安装包。reboot.3 新增 Windows Native 持久根证据，保留 Darwin 的重启／重新挂载检查。
 
-当前同包 macOS arm64 的七组定向检查已通过；正规 Roslyn 构建的 Windows helper 已编译，同包 Windows 六组已请求执行，尚未返回结果。详细范围见[测试记录](<TEST-RESULTS.md>)。这些定向检查不等于真实双机模型业务已经通过。
+当前同包 macOS arm64 的七组定向检查已通过；当前 Roslyn Windows helper 的六组定向检查为 6/6，16 个 actor 的实际退出、close 与双 EOF 均已核验。详细范围见[Windows 同包补充验收](<TEST-RESULTS-REBOOT3-WINDOWS.md>)；[首发时测试记录（历史）](<TEST-RESULTS.md>)保留发布当时的状态，不回写原始记录。这些定向检查不等于真实双机模型业务已经通过。
+
+验收核对了同一 TGZ 的 142 个 payload、144 个 stage 文件、冻结定向定义，以及 142 文件的 reboot.1 旧参考，前后均未变。当前包内 Roslyn helper 为 33,280 字节，SHA-256 为 `4e40e340ce4a6076de3c35046fe3d2e749135ef2ad72cfcfede941758203df19`。外层核对的是 Python communicate/wait 与双 EOF，未单独记录外层 Node `close` 事件。一个故障 actor 以自身退出完成收容，不是成功 runtime drain；未测试其退出后的 guard 重获。
+
+当前 Windows Native/kernel 为真实执行，boot/enrol 历史、部分负例 probes 与注入故障为合成场景。本结果不覆盖真实系统重启、完整 Host/Peer/Core/Store/模型链路、实际双机 E2E、Intel Mac 或掉电，也不是稳定版或性能保证。
 
 源码仓库保持私有，但安装包内的 JavaScript、客户端源码及部分 Native 构建源码可被下载者查看。私有仓库不意味着安装包的代码保密，公开下载也不等于开源授权。公开附件不包含完整维护源码 ZIP。
 
@@ -89,7 +93,7 @@ Mac 端 Agent ── 目标、范围、验收条件 ──▶ Windows 端 Agent
 
 这些依赖由兼容宿主提供，未随本安装包捆绑，插件不会自动安装 SDK。出现缺失或版本冲突时请记录警告并停止，不要用 `--force`、手改 profile 或自动补装未知版本来绕过。
 
-本轮隔离运行测试使用 macOS arm64；Intel Mac 未执行本轮测试。Windows 试用需满足原 Native 条件，包括 Windows 11 x64、build 22621 或更新、固定 NTFS 卷及私有 ACL；系统策略禁止执行 Native EXE 时不提供绕过路径。Windows 同包结果和真实系统重启验收尚未取得。
+本轮隔离定向运行覆盖 macOS arm64 与 Windows x64；Intel Mac 未执行本轮测试。Windows 试用需满足原 Native 条件，包括 Windows 11 x64、build 22621 或更新、固定 NTFS 卷及私有 ACL；系统策略禁止执行 Native EXE 时不提供绕过路径。本次 Windows 同包定向验收不等于真实系统重启验收。
 
 ## 安装
 
@@ -117,7 +121,7 @@ Windows 旧根必须在原先同一个 boot 内成功提交过 Native anchor，�
 - 不支持自动局域网发现、短 PIN 配对和二维码扫描；双方地址与端口需要可达，不承诺任意网络环境下自动连通。
 - 不提供全量聊天同步、通用文件同步、远程桌面或可视化工作流编辑器。
 - 自动收件通知仍是实验能力；不能承诺可靠无人值守、及时触达或模型自动完成。
-- Windows 跨 boot 恢复受上述历史 Native anchor 条件限制；本版同包 Windows 六组尚无返回结果。
+- Windows 跨 boot 恢复受上述历史 Native anchor 条件限制；当前同包六组 6/6、16 个 actor 的定向验收不保证所有旧根均能恢复。
 - macOS 的历史 boot/dev 变更使用合成场景，当前 Native 和 guards 为真实执行；进程重开不等于真实系统重启。本轮没有重启系统，也没有掉电测试。
 - 所有权日志每段仍为 4 MiB，成员上限仍为 128；分段不回收旧段，也不保证磁盘总量不增长。
 - 未知所有者、损坏或部分记录、未结束屏障及失败退出会拒绝接管；不要通过清理证据绕过。
