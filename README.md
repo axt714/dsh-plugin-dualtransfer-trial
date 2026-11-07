@@ -6,6 +6,7 @@ DualTransfer 是 Harness 内的实验插件。两端通过加密直连建立连�
 
 - [下载当前实验版：6.9 reboot.3](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/releases/tag/demo-6.9-reboot.3>)
 - [首发时测试记录（历史）](<TEST-RESULTS.md>) · [Windows 同包补充验收](<TEST-RESULTS-REBOOT3-WINDOWS.md>) · [试用与许可说明](<TRIAL-TERMS.md>)
+- [自维护市场源与安装验证：market.1](<market/README.md>)（Mac 隔离安装 8 阶段通过，Windows 市场安装待验；不是官方收录）
 - [反馈问题](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/issues/new>) · [反馈模板](<.github/ISSUE_TEMPLATE/bug_report.md>)
 
 本仓库提供实验安装包、校验文件和试用反馈入口。当前不是稳定版，也不是开源项目；源码仓库保持私有。请先用隔离环境和非敏感任务试用。
@@ -95,10 +96,12 @@ Mac 端 Agent ── 目标、范围、验收条件 ──▶ Windows 端 Agent
 
 本轮隔离定向运行覆盖 macOS arm64 与 Windows x64；Intel Mac 未执行本轮测试。Windows 试用需满足原 Native 条件，包括 Windows 11 x64、build 22621 或更新、固定 NTFS 卷及私有 ACL；系统策略禁止执行 Native EXE 时不提供绕过路径。本次 Windows 同包定向验收不等于真实系统重启验收。
 
-## 安装
+## 安装封存 reboot.3 TGZ
+
+另有 `0.2.0-candidate.6.9.reboot.3.market.1` 自维护市场评估构建，安装来源、兼容版本和验证范围见[市场指南](<market/README.md>)。它不是默认市场收录，也不把旧版定向测试当作市场安装验证。
 
 1. 先备份现有数据，并优先使用独立的 Harness 测试配置。安装影响所选 profile 中的所有会话，不只是当前聊天。
-2. 从上方 Release 下载 `dsh-plugin-dualtransfer-0.2.0-candidate.6.9.reboot.3.tgz`、`PACKAGE-SHA256.json` 和 `SHA256SUMS.txt`。本包不通过 npm 或 Marketplace 安装。
+2. 从上方 Release 下载 `dsh-plugin-dualtransfer-0.2.0-candidate.6.9.reboot.3.tgz`、`PACKAGE-SHA256.json` 和 `SHA256SUMS.txt`。这里的封存 TGZ 仍按本地包安装；不要与另一个版本名的市场评估构建混用。
 3. 核对 TGZ：`479394` 字节，SHA-256：
 
    `54429f67cbce106e74ccc9e774273aa182f692816070556e8db192f1b661bd06`
@@ -106,7 +109,7 @@ Mac 端 Agent ── 目标、范围、验收条件 ──▶ Windows 端 Agent
 4. 在目标 Harness 中，让 Agent 使用官方插件管理器，将已下载 TGZ 的本地绝对路径作为 `install_bundle` 目标。不要直接修改 profile 文件或在 profile 目录运行 npm/pnpm。
 5. 检查安装结果和依赖警告。确认正常完全退出后，重新打开整个 Harness，以加载新的 Host 和 Client 代码；只刷新浏览器不能重载 Host。安装成功不代表消息收发、重启恢复或旧根维护已经验证。
 
-请勿把未完成退出的服务强制当作已停止，也不要让测试 Agent 自动迁移、清锁或修复原有生产根。本轮测试未执行插件安装或生产根操作。
+请勿把未完成退出的服务强制当作已停止，也不要让测试 Agent 自动迁移、清锁或修复原有生产根。上文 reboot.3 定向测试没有执行安装或生产根操作；另做的 market.1 安装验证仅作用于全新隔离测试配置，没有操作现有生产根。
 
 ## Windows 跨系统重启的条件
 
