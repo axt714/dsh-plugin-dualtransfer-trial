@@ -1,0 +1,4 @@
+# This single product excludes the two historical packages; migrate by removing both old entries first.
+- insert:
+    - id: dsh-plugin-dualtransfer
+      name: dsh-plugin-dualtransfer

@@ -1,0 +1,58 @@
+{
+  "protocol": "dsh-owner-native-build-v1",
+  "source": {
+    "path": "lib/native/owner-windows.ps1",
+    "sha256": "2ac783522e67f330b0affd20c429d62ef72f6d229f8a7980e1231ece5f03beca",
+    "canonicalCSharpSha256": "c6f53faf118f468f4030b5b6a91e74c85371c64beec4a11d38a92bf32ac88293",
+    "consoleHostCSharpSha256": "d29023463f1ffc00f569942aba47a43218a373cdc04f10758ed5c10547410a88",
+    "extraction": "two-exact-named-powershell-single-quoted-here-strings"
+  },
+  "windows": {
+    "file": "lib/native/owner-windows.exe",
+    "framework": "net48",
+    "architecture": "x64",
+    "kind": "console-executable",
+    "entryPoint": "DSHOwnerNative.ConsoleHost",
+    "bytes": 33280,
+    "sha256": "4e40e340ce4a6076de3c35046fe3d2e749135ef2ad72cfcfede941758203df19",
+    "status": "compiled-not-windows-executed",
+    "compiler": {
+      "kind": "Roslyn-csc",
+      "version": "4.11.0-3.25569.22 (3fb752d4)",
+      "hostSha256": "962a33b1298005cda0918c55d6d119de2d0ee949b9c82e99a026e43bec7af30e",
+      "compilerSha256": "e0d7b158577bdfa0339374c8c8436cd5bba2bf4a44c9a14c4fb7f9846ed7b563",
+      "references": [
+        {
+          "name": "mscorlib.dll",
+          "sha256": "6b35530467b914b0b195146ca1d1485ddd219afaad6461103f16f54e952f75a9"
+        },
+        {
+          "name": "System.dll",
+          "sha256": "2fe343569f794f2ca92ee14a41875571a9f21bf92637b8f8ee86306534209cca"
+        },
+        {
+          "name": "System.Core.dll",
+          "sha256": "94a1fc97eb0d36f13acd209bb7207da504c8be10caf7e5096b2c46e671dc6fe2"
+        },
+        {
+          "name": "System.Web.Extensions.dll",
+          "sha256": "7512218c4a6a83de0cdbb8a25240b8b5ee542f93ff9b31acfbf9f7399394450e"
+        }
+      ],
+      "options": [
+        "/nologo",
+        "/noconfig",
+        "/nostdlib+",
+        "/target:exe",
+        "/main:DSHOwnerNative.ConsoleHost",
+        "/platform:x64",
+        "/langversion:7.3",
+        "/deterministic+",
+        "/optimize+",
+        "/debug-",
+        "/pathmap:<isolated-build>=/dsh-owner-native"
+      ]
+    }
+  },
+  "assurance": "Package cohesion only; not a signature, provenance authentication, or Windows runtime acceptance."
+}
