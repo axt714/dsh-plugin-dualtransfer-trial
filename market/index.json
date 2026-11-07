@@ -1,0 +1,46 @@
+{
+  "format": 1,
+  "title": {
+    "en": "DualTransfer evaluation builds",
+    "zh-cn": "DualTransfer 评估试用构建"
+  },
+  "description": {
+    "en": "Publisher-maintained evaluation index. Not an official recommendation or admission; existing trial terms apply.",
+    "zh-cn": "发布者维护的评估试用索引，不代表官方推荐或收录。沿用既有试用条款，开发源码仓库保持私有。"
+  },
+  "plugins": [
+    {
+      "name": "dsh-plugin-dualtransfer",
+      "title": {
+        "en": "DualTransfer — Agent collaboration (evaluation)",
+        "zh-cn": "Agent协作 · DualTransfer（评估试用）"
+      },
+      "description": {
+        "en": "Exchange messages, scoped tasks, progress and results between paired Windows/macOS Harness Agents. Receiver authorization still applies; experimental, not an automatic remote-execution grant.",
+        "zh-cn": "在已配对的 Windows／Mac Harness Agent 间交换消息、限范围任务、进度与结果；仍受接收端本机授权约束。实验评估版，不授予自动远程执行权限。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMyNDU3ZDYiLz48cGF0aCBkPSJNMTQgMjNoMzNtLTgtOCA4IDgtOCA4TTUwIDQxSDE3bTgtOC04IDggOCA4IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+Cg==",
+      "author": "axt714",
+      "homepage": "https://github.com/axt714/dsh-plugin-dualtransfer-trial",
+      "repository": {
+        "url": "https://github.com/axt714/dsh-plugin-dualtransfer-trial.git",
+        "directory": "packages/dualtransfer"
+      },
+      "versions": [
+        {
+          "version": "0.2.0-candidate.6.9.reboot.3.market.1",
+          "publishTimestamp": 1794074721,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/axt714/dsh-plugin-dualtransfer-trial.git",
+            "commit": "1e49f2e772c092417f66f08c8de1c5e18e274b47",
+            "path": "packages/dualtransfer"
+          },
+          "engines": {
+            "dsh": "0.2.1-rc.2"
+          }
+        }
+      ]
+    }
+  ]
+}
