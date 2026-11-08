@@ -6,7 +6,7 @@ DualTransfer 是 Harness 内的实验插件。两端通过加密直连建立连�
 
 - [下载当前实验版：6.9 reboot.3](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/releases/tag/demo-6.9-reboot.3>)
 - [首发时测试记录（历史）](<TEST-RESULTS.md>) · [Windows 同包补充验收](<TEST-RESULTS-REBOOT3-WINDOWS.md>) · [试用与许可说明](<TRIAL-TERMS.md>)
-- [自维护市场源与安装验证：market.1](<market/README.md>)（Mac 隔离安装 8 阶段通过，Windows 市场安装待验；不是官方收录）
+- [自维护市场源与安装验证：market.1](<market/README.md>)（Mac、Windows 隔离安装各 8 阶段通过，原件已复核；不是官方收录）
 - [反馈问题](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/issues/new>) · [反馈模板](<.github/ISSUE_TEMPLATE/bug_report.md>)
 
 本仓库提供实验安装包、校验文件和试用反馈入口。当前不是稳定版，也不是开源项目；源码仓库保持私有。请先用隔离环境和非敏感任务试用。
