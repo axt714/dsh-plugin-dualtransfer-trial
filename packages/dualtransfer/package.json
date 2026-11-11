@@ -1,8 +1,12 @@
 {
   "name": "dsh-plugin-dualtransfer",
-  "version": "0.2.0-candidate.6.9.reboot.3.market.2",
+  "version": "0.2.0-candidate.6.9.reboot.3.market.3",
   "description": "DualTransfer experimental bundle for paired, conversation-scoped Agent messaging. Not open source (UNLICENSED evaluation build, not for production); requires Node.js 24+, tested only on macOS arm64 and Windows 11 x64 build 22621+.",
-  "private": true,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public",
+    "tag": "latest"
+  },
   "license": "UNLICENSED",
   "type": "module",
   "main": "lib/pnpm-hotfix-entry-3.mjs",

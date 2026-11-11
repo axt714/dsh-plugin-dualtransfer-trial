@@ -1,12 +1,20 @@
 # DualTransfer 评估分发包
 
-版本：0.2.0-candidate.6.9.reboot.3.market.2。
+版本：0.2.0-candidate.6.9.reboot.3.market.3。
 
 非开源（UNLICENSED 评估试用版，勿用于生产）；需要 Node.js 24+，仅在 macOS arm64 与 Windows 11 x64 build 22621+ 上测试。
 
 Not open source (UNLICENSED evaluation build, not for production); requires Node.js 24+, tested only on macOS arm64 and Windows 11 x64 build 22621+.
 
-`private: true` 与 `UNLICENSED` 保持不变。请先阅读同目录 `TRIAL-TERMS.md`；评估条款保持原文，不新增许可证。安装包含可读 JavaScript/MJS、客户端实现及运行时必须校验的 PowerShell 源码；下载后的实现代码不保密。第三方 YAML ISC 通知保留。
+本构建面向公共 npm 分发，移除阻止发布的 `private: true`，保留 `UNLICENSED` 和原有评估条款。开发仓库仍为私有；公开安装包可以下载，不代表开源授权。请先阅读同目录 `TRIAL-TERMS.md`。安装包含可读 JavaScript/MJS、客户端实现及运行时必须校验的 PowerShell 源码；下载后的实现代码不保密。第三方 YAML ISC 通知保留。
+
+## npm 安装与“发现”
+
+发布包名为 `dsh-plugin-dualtransfer`。在兼容的 Harness 测试配置中，通过官方插件管理器安装指定版本 `dsh-plugin-dualtransfer@0.2.0-candidate.6.9.reboot.3.market.3`；不要在正在使用的 profile 目录里手工运行 npm/pnpm。
+
+Awesome DSH Plugin 公共索引根据 npm 的 `latest` 标签生成条目。这里的 `latest` 只表示默认分发版本，**本插件仍是评估试用版，不是稳定版**。进入“发现”还取决于公共目录完成扫描与发布、用户启用对应索引，以及宿主兼容性检查。目录 PR 合并不代表所有用户默认可见或获得官方推荐。
+
+market.3 相对 market.2 仅调整版本、npm 发布配置及本说明；运行代码、Native 文件、依赖声明和试用条款保持不变。旧版运行测试仍属于旧版，不作为本次新增业务验收。
 
 ## 环境
 
