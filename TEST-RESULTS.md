@@ -1,6 +1,6 @@
 # 6.9 reboot.3 实验包测试记录
 
-记录日期：2026-11-06。[实验版发布页](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/releases/tag/demo-6.9-reboot.3>)提供以下共用安装包：
+记录日期：2026-11-06。[实验版发布页](<https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/releases/tag/demo-6.9-reboot.3>)提供以下共用安装包：
 
 - 版本：`0.2.0-candidate.6.9.reboot.3`
 - TGZ：`dsh-plugin-dualtransfer-0.2.0-candidate.6.9.reboot.3.tgz`

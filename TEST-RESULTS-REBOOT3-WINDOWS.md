@@ -1,6 +1,6 @@
 # Windows 同包验证补充：6.9 reboot.3
 
-本页补充首发后的 Windows 验收结果，不变更版本或安装包。[首发测试记录](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/blob/main/TEST-RESULTS.md>)及封存摘要保留发布时状态；其中“Windows 待验证”是首发时的记录，当前结果以本页为准。
+本页补充首发后的 Windows 验收结果，不变更版本或安装包。[首发测试记录](<https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/blob/main/TEST-RESULTS.md>)及封存摘要保留发布时状态；其中“Windows 待验证”是首发时的记录，当前结果以本页为准。
 
 ## 结论与安装包
 
@@ -11,9 +11,9 @@ Windows x64、Node v24.13.0 在隔离目录完成固定的六组定向检查：*
 | 项目 | 核验结果 |
 | --- | --- |
 | 版本 | `0.2.0-candidate.6.9.reboot.3` |
-| [安装包](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/releases/download/demo-6.9-reboot.3/dsh-plugin-dualtransfer-0.2.0-candidate.6.9.reboot.3.tgz>) | 479,394 字节，142 个运行文件 |
+| [安装包](<https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/releases/download/demo-6.9-reboot.3/dsh-plugin-dualtransfer-0.2.0-candidate.6.9.reboot.3.tgz>) | 479,394 字节，142 个运行文件 |
 | 安装包 SHA-256 | `54429f67cbce106e74ccc9e774273aa182f692816070556e8db192f1b661bd06` |
-| [包内文件清单](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/releases/download/demo-6.9-reboot.3/PACKAGE-SHA256.json>) SHA-256 | `6cdae4fa31cf1f22ee2511dd3cf67edbd35bf074d89c447f1ae2a73ca5a041ea` |
+| [包内文件清单](<https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/releases/download/demo-6.9-reboot.3/PACKAGE-SHA256.json>) SHA-256 | `6cdae4fa31cf1f22ee2511dd3cf67edbd35bf074d89c447f1ae2a73ca5a041ea` |
 | Windows Native helper | 正规 Roslyn/net48/x64 构建，33,280 字节 |
 | helper SHA-256 | `4e40e340ce4a6076de3c35046fe3d2e749135ef2ad72cfcfede941758203df19` |
 | Windows 执行时间 | 2026-11-07 05:08:20.633768–05:24:04.530322 UTC |
@@ -56,4 +56,4 @@ Windows x64、Node v24.13.0 在隔离目录完成固定的六组定向检查：*
 
 跨 boot 恢复仍要求 boot 变化前已提交的 Native anchor、LAST-owner 关联及当前 Native 证据。缺少历史 anchor 且已跨 boot 的旧根继续返回 `OWNER_ROOT_ORIGIN_REQUIRED`；操作者说明不能补造历史 Native 证据，unknown 也不会被直接当成 dead。
 
-试用请从[README](<README.md>)和[反馈模板](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/blob/main/.github/ISSUE_TEMPLATE/bug_report.md>)开始。任务接续始终受接收端本机既有授权、绑定和收件配置约束；收到事实回执不代表执行或验收成功。本次补充不扩大任何远端执行权限。
+试用请从[README](<README.md>)和[反馈模板](<https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/blob/main/.github/ISSUE_TEMPLATE/bug_report.md>)开始。任务接续始终受接收端本机既有授权、绑定和收件配置约束；收到事实回执不代表执行或验收成功。本次补充不扩大任何远端执行权限。

@@ -4,12 +4,16 @@
 
 DualTransfer 是 Harness 内的实验插件。两端通过加密直连建立连接，分别绑定自己的本机会话，不需要另装 Dual Transfer App。除 Win/Mac 互联外，设计也支持同系统双机；实际验证范围见下方记录。
 
-- [下载当前实验版：6.9 reboot.3](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/releases/tag/demo-6.9-reboot.3>)
-- [首发时测试记录（历史）](<TEST-RESULTS.md>) · [Windows 同包补充验收](<TEST-RESULTS-REBOOT3-WINDOWS.md>) · [试用与许可说明](<TRIAL-TERMS.md>)
-- [自维护市场源与安装验证：market.1](<market/README.md>)（Mac、Windows 隔离安装各 8 阶段通过，原件已复核；不是官方收录）
-- [反馈问题](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/issues/new>) · [反馈模板](<.github/ISSUE_TEMPLATE/bug_report.md>)
+- [当前市场评估版 market.2：安装指南与验证边界](<market/README.md>)（Git 子目录分发；等待目录维护者复验，不代表官方收录）
+- [历史封存包：6.9 reboot.3](<https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/releases/tag/demo-6.9-reboot.3>)
+- [首发时测试记录（历史）](<TEST-RESULTS.md>) · [Windows 同包补充验收（历史）](<TEST-RESULTS-REBOOT3-WINDOWS.md>) · [试用与许可说明](<TRIAL-TERMS.md>)
+- [反馈问题](<https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/issues/new>) · [反馈模板](<.github/ISSUE_TEMPLATE/bug_report.md>)
 
-本仓库提供实验安装包、校验文件和试用反馈入口。当前不是稳定版，也不是开源项目；源码仓库保持私有。请先用隔离环境和非敏感任务试用。
+非开源（UNLICENSED 评估试用版，勿用于生产）；需要 Node.js 24+，仅在 macOS arm64 与 Windows 11 x64 build 22621+ 上测试。
+
+Not open source (UNLICENSED evaluation build, not for production); requires Node.js 24+, tested only on macOS arm64 and Windows 11 x64 build 22621+.
+
+本仓库提供实验安装包、校验文件和试用反馈入口；源码仓库保持私有。请先用隔离环境和非敏感任务试用。market.1 的 Mac、Windows 各八阶段安装结果保留为历史，不冒充 market.2 或新宿主上的完整业务验收。
 
 ## 可以用它做什么
 
@@ -67,9 +71,9 @@ Mac 端 Agent ── 目标、范围、验收条件 ──▶ Windows 端 Agent
 
 这些是任务说明示例，不是插件提供的权限沙箱或一个名为“工作流模式”的开关。插件不会替你创建或恢复 Goal，也不直接调用模型执行远端文本。完整双机 Host/Agent/模型流程尚未验收，这些步骤是建议试用路径，不是已经录制成功的演示。
 
-## 当前构建：6.9 reboot.3
+## 历史封存构建：6.9 reboot.3
 
-版本为 `0.2.0-candidate.6.9.reboot.3`，macOS 与 Windows 共用一个安装包。reboot.3 新增 Windows Native 持久根证据，保留 Darwin 的重启／重新挂载检查。
+以下记录属于封存版本 `0.2.0-candidate.6.9.reboot.3`，不是 market.2 的新运行验收。macOS 与 Windows 共用一个安装包；reboot.3 新增 Windows Native 持久根证据，保留 Darwin 的重启／重新挂载检查。
 
 当前同包 macOS arm64 的七组定向检查已通过；当前 Roslyn Windows helper 的六组定向检查为 6/6，16 个 actor 的实际退出、close 与双 EOF 均已核验。详细范围见[Windows 同包补充验收](<TEST-RESULTS-REBOOT3-WINDOWS.md>)；[首发时测试记录（历史）](<TEST-RESULTS.md>)保留发布当时的状态，不回写原始记录。这些定向检查不等于真实双机模型业务已经通过。
 
@@ -81,7 +85,7 @@ Mac 端 Agent ── 目标、范围、验收条件 ──▶ Windows 端 Agent
 
 ## 环境要求
 
-需要兼容本包 SDK 的 DeepSeek Harness 环境，以及 Node.js 24 或更新版本。仅满足 Node 版本并不足以保证兼容。包声明的六项 peer dependencies 为：
+当前 market.2 声明 DSH `0.2.1-rc.2 || >=0.2.2-rc.1 <0.2.3-0`，需要 Node.js 24 或更新版本。该范围保留旧基线并放行当前 `0.2.2` 版本线，不包含未来 `0.2.3`／`0.3` 的预发布版。仅通过版本门控不代表完整业务兼容；market.2 的具体补验范围见[市场指南](<market/README.md>)。包声明的六项 peer dependencies 保持原版本：
 
 | 依赖 | 精确版本 |
 | --- | --- |
@@ -94,11 +98,11 @@ Mac 端 Agent ── 目标、范围、验收条件 ──▶ Windows 端 Agent
 
 这些依赖由兼容宿主提供，未随本安装包捆绑，插件不会自动安装 SDK。出现缺失或版本冲突时请记录警告并停止，不要用 `--force`、手改 profile 或自动补装未知版本来绕过。
 
-本轮隔离定向运行覆盖 macOS arm64 与 Windows x64；Intel Mac 未执行本轮测试。Windows 试用需满足原 Native 条件，包括 Windows 11 x64、build 22621 或更新、固定 NTFS 卷及私有 ACL；系统策略禁止执行 Native EXE 时不提供绕过路径。本次 Windows 同包定向验收不等于真实系统重启验收。
+历史 reboot.3 隔离定向运行覆盖 macOS arm64 与 Windows x64；Intel Mac 未测试。Windows 试用仍需满足原 Native 条件，包括 Windows 11 x64、build 22621 或更新、固定 NTFS 卷及私有 ACL；系统策略禁止执行 Native EXE 时不提供绕过路径。历史 Windows 同包定向验收不等于真实系统重启验收。
 
 ## 安装封存 reboot.3 TGZ
 
-另有 `0.2.0-candidate.6.9.reboot.3.market.1` 自维护市场评估构建，安装来源、兼容版本和验证范围见[市场指南](<market/README.md>)。它不是默认市场收录，也不把旧版定向测试当作市场安装验证。
+当前自维护市场评估构建为 `0.2.0-candidate.6.9.reboot.3.market.2`，安装来源、兼容版本和验证范围见[市场指南](<market/README.md>)。它与下述历史 TGZ 分开分发，目录申请仍待维护者复验；不把旧版定向测试或旧版市场安装记录当作新版本验收。
 
 1. 先备份现有数据，并优先使用独立的 Harness 测试配置。安装影响所选 profile 中的所有会话，不只是当前聊天。
 2. 从上方 Release 下载 `dsh-plugin-dualtransfer-0.2.0-candidate.6.9.reboot.3.tgz`、`PACKAGE-SHA256.json` 和 `SHA256SUMS.txt`。这里的封存 TGZ 仍按本地包安装；不要与另一个版本名的市场评估构建混用。

@@ -7,19 +7,25 @@
 日常使用的索引地址：
 
 ```text
-https://raw.githubusercontent.com/axt714/dsh-plugin-dualtransfer-trial/main/market/index.json
+https://raw.githubusercontent.com/AXTUT/dsh-plugin-dualtransfer-trial/main/market/index.json
 ```
 
-本轮验证固定的索引地址：
+market.1 历史验证固定的索引地址（保留原提交，不代表当前版本）：
 
 ```text
-https://raw.githubusercontent.com/axt714/dsh-plugin-dualtransfer-trial/36f03d9924ebf5adff122dd54330423792a83919/market/index.json
+https://raw.githubusercontent.com/AXTUT/dsh-plugin-dualtransfer-trial/36f03d9924ebf5adff122dd54330423792a83919/market/index.json
 ```
 
 - 插件名：`dsh-plugin-dualtransfer`。
-- 评估版：`0.2.0-candidate.6.9.reboot.3.market.1`。
-- 分发仓库中的路径：`packages/dualtransfer`；固定提交 `1e49f2e772c092417f66f08c8de1c5e18e274b47`。
-- 支持范围目前限定为 DSH `0.2.1-rc.2`、Node.js 24 或更高版本，并保留包内列出的六个精确 peer dependency 版本。未申请版本豁免。
+- 当前评估版：`0.2.0-candidate.6.9.reboot.3.market.2`。
+- 分发路径仍为 `packages/dualtransfer`；当前不可变分发提交以索引内 market.2 的 `source.commit` 为准。旧 market.1 的分发提交仍为 `1e49f2e772c092417f66f08c8de1c5e18e274b47`，不覆盖旧版本。
+- market.2 的 DSH 声明范围为 `0.2.1-rc.2 || >=0.2.2-rc.1 <0.2.3-0`：保留旧基线，放行维护者当前的 `0.2.2` 版本线，不自动放行 `0.2.3` 或 `0.3` 预发布版。Node.js 仍需 24 或更高版本；六个精确 peer dependency 声明不变，未申请版本豁免。
+
+非开源（UNLICENSED 评估试用版，勿用于生产）；需要 Node.js 24+，仅在 macOS arm64 与 Windows 11 x64 build 22621+ 上测试。
+
+Not open source (UNLICENSED evaluation build, not for production); requires Node.js 24+, tested only on macOS arm64 and Windows 11 x64 build 22621+.
+
+market.2 只更新元数据、文档和当前账号链接，不改业务或 Native 代码。版本门控放行不等于完整新版 SDK 或业务兼容。下列 Mac、Windows 八阶段安装记录属于 market.1；不把旧测试、旧安装字节数或旧生产安装记录改写为 market.2 的验收。
 
 ## 使用方式
 
@@ -29,9 +35,23 @@ https://raw.githubusercontent.com/axt714/dsh-plugin-dualtransfer-trial/36f03d992
 
 市场安装和插件挂载不等于开启协作服务、绑定会话或授权执行任务。双机配对、绑定与接续处理仍受接收端的本机配置及既有授权限制。
 
-## 验证状态（2026-11-07）
+## market.2 本轮验证边界（2026-11-10）
 
-| 项目 | 当前记录 |
+本轮修订宿主版本门控、双语限制说明和当前账号链接，保留业务、Native、试用条款及原有权限。只将版本门控、官方索引解析、文件闭包和明确记载的隔离 SDK 检查作为本轮证据；不将这些检查称为完整新版 Host、Windows、双机或模型验收。以下旧版八阶段结果不覆盖 market.2，也不保证新版宿主或第三方依赖组合兼容。
+
+本轮已完成的限定检查：
+
+- 官方版本门控接受原 `0.2.1-rc.2` 与目标 `0.2.2-rc.1`，拒绝边界外版本；官方索引解析器从保留的两个版本中选出 market.2，并生成固定提交安装目标。
+- 在独立 HOME、store、cache 与配置目录中，从 npm 官方 registry 实际取得五个 DSH SDK 包 `0.2.2-rc.1`、Cordis `4.1.0` 和 Schemastery `3.19.0`，禁用安装脚本。五项限定 SDK 检查通过，五包的 registry 完整性值与新 lock 一致。
+- 新 SDK 的真实默认版本为 `0.2.2-rc.1`；其门控对原 market.2 清单的显式与默认版本检查均接受，仅将声明换回旧精确版本的负例被拒绝，未使用版本豁免。
+- 未修改的纯内存 `source-contract` 返回 `verified`；原入口可导入，Config、inject 和导出形状检查通过。未调用 `apply`，挂载和卸载明确未测。
+- 127 个分发文件与隔离副本的检查前后字节、SHA-256、权限均一致；相对 market.1 仅清单和包内 README 改变，125 个其他文件（含 124 个运行时/资源文件及试用条款）不变。各成功检查的父子进程均采集到 exit/close 0 与双 EOF。
+
+这不是官方插件管理器安装或完整 Host 服务图验证，未证明原精确 peer 组合的新版安装兼容。未运行 Native、协作服务、真实模型或双机传输。首次本地 pnpm 因不支持 `--state-dir` 在下载前退出，失败原件保留；仅移除此 flag 后首次网络安装成功，未换源或另起网络重试。不能据此声称新版无警告、Windows 验收或无人值守可靠性通过。
+
+## market.1 历史验证（2026-11-07）
+
+| 项目 | 历史记录 |
 | --- | --- |
 | 最小分发闭包 | 127 文件；124 个旧运行时文件字节不变，另含新元数据、说明与原文试用条款 |
 | 官方索引解析器 | 已通过当前安装的 `0.2.1-rc.2` 官方解析器 |
@@ -39,7 +59,7 @@ https://raw.githubusercontent.com/axt714/dsh-plugin-dualtransfer-trial/36f03d992
 | Mac 全新配置中的官方安装生命周期 | 已通过 8 个全新官方 Host 进程：启用市场、禁用安装、核验停用、启用、核验启用、停用、卸载、核验卸载；每个进程均正常退出并收到双 EOF |
 | Windows 同包市场安装生命周期 | 已通过 R2 的 8 个全新官方 Host 进程；Mac 已收齐 119 份原件并完成主审和独立复核，保留测试策略授权及依赖警告边界 |
 | 浏览器界面点击、双机业务及模型链路 | 不在这次后端安装生命周期证明范围内 |
-| 官方推荐源或默认市场收录 | 尚未申请或获批 |
+| 官方推荐源或默认市场收录 | 当时未申请；后续目录 PR 状态另见下文，不代表已收录 |
 
 Mac 验证使用真实官方 `runProfile`、市场与插件管理器，不是浏览器自动化。五份安装观测各含 127 文件、1,436,011 字节，逐项核对了字节数和 SHA-256；不是 635 个不同文件。Darwin helper 的 Git 可执行位为 `100755`，实际安装权限为 `0700`，保留执行位。启用后的 Host Tool、产品所有权、客户端模块图和官方 `fetchBundle` handler 响应已核验；没有浏览器挂载或真实 HTTP 请求证明，也没有启动协作业务或调用模型。
 
@@ -55,8 +75,8 @@ Windows 旧准备在 `Restricted` 下尚未执行 helper 就停止，原失败�
 
 [包内 README](<../packages/dualtransfer/README.md>)记录的是构建时的验证状态。后续安装结果另作补充记录，不覆盖固定提交中的分发文件或旧版发布资产。旧 reboot.3 的 Mac 7/7、Windows 6/6 定向验证，不代替这次市场安装验证，也不等于真实系统重启或完整 Host/模型端到端验证。
 
-## 向维护者提出收录建议时应附带什么
+## 目录申请状态
 
-可提交插件名称和用途、上述索引地址、固定版本与提交、试用条款、平台和 DSH 版本限制、隔离安装的实际结果、已知未验证项目及[反馈入口](<https://github.com/axt714/dsh-plugin-dualtransfer-trial/issues/new>)。先询问维护者是否接受推荐索引，以及采用何种提交渠道；目前没有查到可据此承诺的统一审核、收费或自动收录流程。
+已提交[插件目录 PR #13419](<https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/13419>)，维护者要求补齐当前宿主版本范围、平台和评估许可限制，并清理旧账号链接。market.2 对应这轮修订；是否收录以维护者后续复验和合并结果为准。自动检查成功、自维护索引可访问、旧版安装成功，都不等于目录已合并或官方背书。
 
-不要发送原始本机日志、会话内容、访问令牌、配对密钥或内部路径。维护者接受推荐源与否，不影响用户自行添加这个索引。
+如提交后续反馈，请附版本和固定提交、平台与 DSH 版本、复现步骤及已知未验证项。不要发送原始本机日志、会话内容、访问令牌、配对密钥或内部路径。目录审核不影响用户自行添加这个索引；无需为复验改动生产配置或原始数据。
