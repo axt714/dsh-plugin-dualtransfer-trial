@@ -4,6 +4,7 @@
 
 DualTransfer 是 Harness 内的实验插件。两端通过加密直连建立连接，分别绑定自己的本机会话，不需要另装 Dual Transfer App。除 Win/Mac 互联外，设计也支持同系统双机；实际验证范围见下方记录。
 
+- [下载 market.3 安装包（Windows / macOS，无需 Git）](https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/releases/download/market.3/dsh-plugin-dualtransfer-0.2.0-candidate.6.9.reboot.3.market.3.tgz)。下载后，在 DSH 插件管理器中使用该 `.tgz` 文件的本地路径安装。
 - [market.3 评估版安装指南](market/README.md) · [npm 包与版本](https://www.npmjs.com/package/dsh-plugin-dualtransfer) · [社区目录收录记录](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/13419)
 - [历史封存包：6.9 reboot.3](<https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/releases/tag/demo-6.9-reboot.3>)
 - [首发时测试记录（历史）](<TEST-RESULTS.md>) · [Windows 同包补充验收（历史）](<TEST-RESULTS-REBOOT3-WINDOWS.md>) · [试用与许可说明](<TRIAL-TERMS.md>)
