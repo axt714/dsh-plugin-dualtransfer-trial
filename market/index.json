@@ -28,6 +28,16 @@
       },
       "versions": [
         {
+          "version": "0.2.0-candidate.6.9.reboot.3.market.3",
+          "publishTimestamp": 1794382442,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": "0.2.1-rc.2 || >=0.2.2-rc.1 <0.2.3-0"
+          }
+        },
+        {
           "version": "0.2.0-candidate.6.9.reboot.3.market.2",
           "publishTimestamp": 1794371953,
           "source": {

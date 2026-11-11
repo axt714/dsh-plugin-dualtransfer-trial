@@ -17,8 +17,8 @@ https://raw.githubusercontent.com/AXTUT/dsh-plugin-dualtransfer-trial/36f03d9924
 ```
 
 - 插件名：`dsh-plugin-dualtransfer`。
-- 当前评估版：`0.2.0-candidate.6.9.reboot.3.market.2`。
-- 分发路径仍为 `packages/dualtransfer`；当前不可变分发提交以索引内 market.2 的 `source.commit` 为准。旧 market.1 的分发提交仍为 `1e49f2e772c092417f66f08c8de1c5e18e274b47`，不覆盖旧版本。
+- npm 评估版为 `dsh-plugin-dualtransfer@0.2.0-candidate.6.9.reboot.3.market.3`。通过兼容的 DSH 插件管理器安装此版本，或在启用 Awesome DSH Plugin 公共索引后到“发现”中搜索 `dualtransfer`。公共搜索需要等待上游索引发布。
+- market.3 使用 npm 精确版本。market.2 和 market.1 使用 Git 子目录 `packages/dualtransfer`，各自的固定提交见索引中的 `source.commit`。
 - market.2 的 DSH 声明范围为 `0.2.1-rc.2 || >=0.2.2-rc.1 <0.2.3-0`：保留旧基线，放行维护者当前的 `0.2.2` 版本线，不自动放行 `0.2.3` 或 `0.3` 预发布版。Node.js 仍需 24 或更高版本；六个精确 peer dependency 声明不变，未申请版本豁免。
 
 非开源（UNLICENSED 评估试用版，勿用于生产）；需要 Node.js 24+，仅在 macOS arm64 与 Windows 11 x64 build 22621+ 上测试。
@@ -34,6 +34,10 @@ market.2 只更新元数据、文档和当前账号链接，不改业务或 Nati
 从该索引中选择 DualTransfer，并先以禁用状态安装。若插件管理器提示需要重启，正常退出并重新打开对应的测试配置，不要把关闭页签当作 Host 重启。启用、禁用和卸载均走官方插件管理器，不手工编辑配置目录里的依赖、锁文件或补丁文件，也不清理所有权锁、强退协作服务或改 Native 文件权限来绕过失败。
 
 市场安装和插件挂载不等于开启协作服务、绑定会话或授权执行任务。双机配对、绑定与接续处理仍受接收端的本机配置及既有授权限制。
+
+## market.3 分发验证
+
+在 macOS arm64 的独立 npm 项目里安装了待发布的 TGZ，核对了全部 127 个文件的内容和执行位，以及六项 peer dependencies 的精确版本。插件入口加载成功，默认配置为停用。DSH 市场索引解析器能生成这个版本的 npm 安装目标。Windows 安装和完整双机业务仍以各版本标明的实测范围为准。
 
 ## market.2 本轮验证边界（2026-11-10）
 
@@ -77,6 +81,6 @@ Windows 旧准备在 `Restricted` 下尚未执行 helper 就停止，原失败�
 
 ## 目录申请状态
 
-已提交[插件目录 PR #13419](<https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/13419>)，维护者要求补齐当前宿主版本范围、平台和评估许可限制，并清理旧账号链接。market.2 对应这轮修订；是否收录以维护者后续复验和合并结果为准。自动检查成功、自维护索引可访问、旧版安装成功，都不等于目录已合并或官方背书。
+[社区插件目录 PR #13419](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/13419) 已合并。公共索引根据 npm 的默认版本 `latest`、发布时间和仓库地址生成。使用这个索引的用户可以在上游更新后搜索插件。
 
 如提交后续反馈，请附版本和固定提交、平台与 DSH 版本、复现步骤及已知未验证项。不要发送原始本机日志、会话内容、访问令牌、配对密钥或内部路径。目录审核不影响用户自行添加这个索引；无需为复验改动生产配置或原始数据。

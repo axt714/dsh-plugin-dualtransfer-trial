@@ -4,7 +4,7 @@
 
 DualTransfer 是 Harness 内的实验插件。两端通过加密直连建立连接，分别绑定自己的本机会话，不需要另装 Dual Transfer App。除 Win/Mac 互联外，设计也支持同系统双机；实际验证范围见下方记录。
 
-- [当前市场评估版 market.2：安装指南与验证边界](<market/README.md>)（Git 子目录分发；等待目录维护者复验，不代表官方收录）
+- [market.3 评估版安装指南](market/README.md) · [npm 包与版本](https://www.npmjs.com/package/dsh-plugin-dualtransfer) · [社区目录收录记录](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/13419)
 - [历史封存包：6.9 reboot.3](<https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/releases/tag/demo-6.9-reboot.3>)
 - [首发时测试记录（历史）](<TEST-RESULTS.md>) · [Windows 同包补充验收（历史）](<TEST-RESULTS-REBOOT3-WINDOWS.md>) · [试用与许可说明](<TRIAL-TERMS.md>)
 - [反馈问题](<https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/issues/new>) · [反馈模板](<.github/ISSUE_TEMPLATE/bug_report.md>)
@@ -85,7 +85,7 @@ Mac 端 Agent ── 目标、范围、验收条件 ──▶ Windows 端 Agent
 
 ## 环境要求
 
-当前 market.2 声明 DSH `0.2.1-rc.2 || >=0.2.2-rc.1 <0.2.3-0`，需要 Node.js 24 或更新版本。该范围保留旧基线并放行当前 `0.2.2` 版本线，不包含未来 `0.2.3`／`0.3` 的预发布版。仅通过版本门控不代表完整业务兼容；market.2 的具体补验范围见[市场指南](<market/README.md>)。包声明的六项 peer dependencies 保持原版本：
+market.3 沿用 market.2 的 DSH 兼容范围 `0.2.1-rc.2 || >=0.2.2-rc.1 <0.2.3-0`，需要 Node.js 24 或更新版本。市场指南记录了各版本的[验证范围](market/README.md)。包声明以下六项 peer dependencies。
 
 | 依赖 | 精确版本 |
 | --- | --- |
@@ -102,7 +102,7 @@ Mac 端 Agent ── 目标、范围、验收条件 ──▶ Windows 端 Agent
 
 ## 安装封存 reboot.3 TGZ
 
-当前自维护市场评估构建为 `0.2.0-candidate.6.9.reboot.3.market.2`，安装来源、兼容版本和验证范围见[市场指南](<market/README.md>)。它与下述历史 TGZ 分开分发，目录申请仍待维护者复验；不把旧版定向测试或旧版市场安装记录当作新版本验收。
+当前 npm 评估构建为 `0.2.0-candidate.6.9.reboot.3.market.3`。安装来源和兼容版本见[市场指南](market/README.md)。下列步骤适用于历史封存 TGZ。
 
 1. 先备份现有数据，并优先使用独立的 Harness 测试配置。安装影响所选 profile 中的所有会话，不只是当前聊天。
 2. 从上方 Release 下载 `dsh-plugin-dualtransfer-0.2.0-candidate.6.9.reboot.3.tgz`、`PACKAGE-SHA256.json` 和 `SHA256SUMS.txt`。这里的封存 TGZ 仍按本地包安装；不要与另一个版本名的市场评估构建混用。
