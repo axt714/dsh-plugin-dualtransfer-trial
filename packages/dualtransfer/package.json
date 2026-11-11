@@ -1,14 +1,14 @@
 {
   "name": "dsh-plugin-dualtransfer",
-  "version": "0.2.0-candidate.6.9.reboot.3.market.1",
-  "description": "DualTransfer experimental bundle for paired, conversation-scoped Agent messaging.",
+  "version": "0.2.0-candidate.6.9.reboot.3.market.2",
+  "description": "DualTransfer experimental bundle for paired, conversation-scoped Agent messaging. Not open source (UNLICENSED evaluation build, not for production); requires Node.js 24+, tested only on macOS arm64 and Windows 11 x64 build 22621+.",
   "private": true,
   "license": "UNLICENSED",
   "type": "module",
   "main": "lib/pnpm-hotfix-entry-3.mjs",
   "engines": {
     "node": ">=24",
-    "dsh": "0.2.1-rc.2"
+    "dsh": "0.2.1-rc.2 || >=0.2.2-rc.1 <0.2.3-0"
   },
   "exports": {
     ".": "./lib/pnpm-hotfix-entry-3.mjs",
@@ -171,15 +171,15 @@
       ]
     }
   },
-  "author": "axt714",
-  "homepage": "https://github.com/axt714/dsh-plugin-dualtransfer-trial",
+  "author": "AXTUT",
+  "homepage": "https://github.com/AXTUT/dsh-plugin-dualtransfer-trial",
   "repository": {
     "type": "git",
-    "url": "https://github.com/axt714/dsh-plugin-dualtransfer-trial.git",
+    "url": "https://github.com/AXTUT/dsh-plugin-dualtransfer-trial.git",
     "directory": "packages/dualtransfer"
   },
   "bugs": {
-    "url": "https://github.com/axt714/dsh-plugin-dualtransfer-trial/issues"
+    "url": "https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/issues"
   },
   "keywords": [
     "dsh-plugin",

@@ -1,17 +1,19 @@
 # DualTransfer 评估分发包
 
-版本：0.2.0-candidate.6.9.reboot.3.market.1。
+版本：0.2.0-candidate.6.9.reboot.3.market.2。
 
-这是面向隔离测试环境的预编译评估包，不是开源发行、市场准入声明或生产可用性保证。
-`private: true` 与 `UNLICENSED` 保持不变。请先阅读同目录 `TRIAL-TERMS.md`；
-其中的评估条款保持原文，不新增许可证。安装包含可读 JavaScript/MJS、客户端实现及
-运行时必须校验的 PowerShell 源码；下载后的实现代码不保密。第三方 YAML ISC 通知保留。
+非开源（UNLICENSED 评估试用版，勿用于生产）；需要 Node.js 24+，仅在 macOS arm64 与 Windows 11 x64 build 22621+ 上测试。
+
+Not open source (UNLICENSED evaluation build, not for production); requires Node.js 24+, tested only on macOS arm64 and Windows 11 x64 build 22621+.
+
+`private: true` 与 `UNLICENSED` 保持不变。请先阅读同目录 `TRIAL-TERMS.md`；评估条款保持原文，不新增许可证。安装包含可读 JavaScript/MJS、客户端实现及运行时必须校验的 PowerShell 源码；下载后的实现代码不保密。第三方 YAML ISC 通知保留。
 
 ## 环境
 
 - Node.js `>=24`。
-- DeepSeek Harness：精确版本 `0.2.1-rc.2`；并非任意 Harness 版本。
-- 六项精确 peerDependencies（需另行取得并遵守其条款）：
+- DeepSeek Harness 声明范围：`0.2.1-rc.2 || >=0.2.2-rc.1 <0.2.3-0`。保留旧测试基线，并放行当前 `0.2.2-rc.1` 起的 `0.2.2` 版本线；不自动放行 `0.2.3` 或 `0.3` 的预发布版。
+- 平台仅测试过 macOS arm64 和 Windows 11 x64 build 22621+；Intel Mac 未测试。Windows 仍需固定 NTFS 卷、私有 ACL 和允许执行 Native EXE 的系统策略，不提供绕过路径。
+- 六项精确 peerDependencies 保持原声明，需另行取得并遵守其条款：
   - `@deepseek-ai/cordis`：`4.0.5`
   - `@deepseek-ai/schemastery`：`3.18.5`
   - `@deepseek-ai/dsh-scope`：`0.2.1-rc.2`
@@ -19,19 +21,18 @@
   - `@deepseek-ai/dsh-llm`：`0.2.1-rc.2`
   - `@deepseek-ai/dsh-session`：`0.2.1-rc.2`
 
-本包只包含预编译运行文件及必要资源，不包含开发、测试、Native 编译或维护工具，
-也没有安装期构建脚本。保留 Darwin 二进制、Windows EXE 及其运行校验依赖；
-这不表示新增平台兼容性或安装实测。此目录本身不是 Registry 发布或市场上架记录。
+版本门控放行不代表新版 SDK 或完整业务已经验证。不要为消除依赖警告申请版本豁免、强制安装或手改 profile。
 
-## 已测范围与限制
+本包只包含预编译运行文件及必要资源，不包含开发、测试、Native 编译或维护工具，也没有安装期构建脚本。保留 Darwin 二进制、Windows EXE 及其运行校验依赖；这不表示新增平台运行验收。此目录本身不是 Registry 发布或市场上架记录。
 
-旧密封 reboot.3 的 Mac 7 组、Windows 6 组定向记录属于旧构建的历史记录，
-不是这个 market.1 包的新市场安装、激活或跨机业务实测。market.1 的本次验证仅为
-文件字节、SHA-256、权限、JSON/XML 与静态资源闭包核对，没有执行产品或安装。
-它不能替代 Host/Client 注册、完整配对收发、会话激活、端到端业务、真实重启、
-掉电恢复或目标机器兼容性验证；不承诺稳定性或自动修复历史状态。
+## 本轮变更与验证边界
 
-评估前请备份，并使用隔离环境；不要依赖此实验包处理不可丢失的生产任务。
-提交反馈前请脱敏，不公开 token、密钥、完整会话、生产备份或 origin 文件。
+market.2 仅修订包元数据与说明：放宽宿主版本门控、补足平台及许可限制、把当前项目与反馈链接改为 `AXTUT`。其余运行文件、试用条款与执行位保持 market.1 的内容，不更换业务或 Native 实现。
 
-项目与反馈：https://github.com/axt714/dsh-plugin-dualtransfer-trial
+market.1 曾在 DSH `0.2.1-rc.2` 上完成 Mac、Windows 各八阶段的隔离官方安装生命周期；这是旧版本的历史结果，不是 market.2 的新安装验收。旧封存 reboot.3 的 Mac 七组、Windows 六组定向检查同样属于旧构建。
+
+本轮检查版本门控、官方索引解析及文件资源闭包；本机宿主仍为 `0.2.1-rc.2`。对 `0.2.2-rc.1` 的版本参数检查不是在该版本宿主上运行插件。新版宿主上的实际加载仍待复验，不承诺完整配对收发、端到端业务、模型自动处理、真实重启、掉电恢复或自动修复历史状态。详见[市场指南](<https://github.com/AXTUT/dsh-plugin-dualtransfer-trial/blob/main/market/README.md>)。
+
+评估前请备份并使用隔离环境，不要接入生产任务。提交反馈前请脱敏，不公开 token、密钥、完整会话、生产备份或 origin 文件。
+
+项目与反馈：https://github.com/AXTUT/dsh-plugin-dualtransfer-trial
